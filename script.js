@@ -1,3 +1,13 @@
+
+const generator = document.getElementById('btn-generator'),
+display = document.getElementById('display')
+
+generator.addEventListener('click',() => {
+    let scramble = GenerateScramble()
+    return display.innerHTML = scramble
+})
+
+
 function GenerateScramble() {
     // Legal moves
     const moves = ['U','D','L','R','F','B','U2','D2','L2','R2','F2','B2',"U'","D'","L'","R'","F'","B'"];
@@ -26,6 +36,6 @@ function GetRange(min = 0,max = min*2) {
 
     return range;
 };
-console.log(GenerateScramble())
+// console.log(GenerateScramble())
 
-export { GenerateScramble, GetRange }
+// export { GenerateScramble, GetRange }
