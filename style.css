@@ -15,6 +15,7 @@ body {
     align-items: center;
 }
 .credits {
+    text-align: center;
     text-decoration: none;
     color: rgba(250, 235, 215, 0.664);
     position: fixed;
