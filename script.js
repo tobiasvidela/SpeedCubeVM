@@ -1,6 +1,7 @@
+'use strict' //JavaScript Moderno
 
 const generator = document.getElementById('btn-generator'),
-display = document.getElementById('display')
+      display = document.getElementById('display')
 
 generator.addEventListener('click',() => {
     let scramble = GenerateScramble()
@@ -19,11 +20,25 @@ function GenerateScramble() {
 
     for (let i = 0; i < scrambleLenght; i++) {
         let move = moves[Math.floor(Math.random() * moves.length)];
+        let moveVal = move.substring(0,1)
+            console.log(`MV: ${moveVal}`)
+        let lastMoveVal = lastMove.substring(0,1)
+            console.log(`LMV: ${lastMoveVal}`)
+            console.log(moveVal == lastMoveVal)
+
         while (move === lastMove) {
             move = moves[Math.floor(Math.random() * moves.length)];
         }
+        if ((moveVal == lastMoveVal)) {
+            move = moves[Math.floor(Math.random() * moves.length)];
+            if ((moveVal == lastMoveVal)) {
+                move = moves[Math.floor(Math.random() * moves.length)];
+                scramble += `${move} `
+            }
+        } else {
+            scramble += `${move} `;
+        }
 
-        scramble += `${move} `;
         lastMove = move;
 
     }
@@ -36,6 +51,7 @@ function GetRange(min = 0,max = min*2) {
 
     return range;
 };
+
 // console.log(GenerateScramble())
 
 // export { GenerateScramble, GetRange }
