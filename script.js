@@ -1,13 +1,12 @@
-'use strict' //JavaScript Moderno
+'use strict';
 
 const generator = document.getElementById('btn-generator'),
-      display = document.getElementById('display')
+      display = document.getElementById('display');
 
 generator.addEventListener('click',() => {
-    let scramble = GenerateScramble()
-    return display.innerHTML = scramble
-})
-
+    let scramble = GenerateScramble();
+    return display.innerHTML = scramble;
+});
 
 function GenerateScramble() {
     // Legal moves
@@ -23,12 +22,12 @@ function GenerateScramble() {
         
         while (move.includes(lastLayerMoved)) {
             move = moves[Math.floor(Math.random() * moves.length)];
-        }
+        };
         
         scramble += `${move} `;
 
         lastLayerMoved = move.substring(0,1);
-    }
+    };
   
     return scramble;
 }
@@ -38,7 +37,3 @@ function GetRange(min = 0,max = min*2) {
 
     return range;
 };
-
-// console.log(GenerateScramble())
-
-// export { GenerateScramble, GetRange }
