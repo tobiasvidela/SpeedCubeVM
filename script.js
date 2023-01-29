@@ -15,21 +15,19 @@ function GenerateScramble() {
   
     // Generate a random sequence of moves
     let scramble = '';
-    let lastLayerMoved = '';
+    let lastLayerMoved = null;
     let scrambleLenght = GetRange(17,22); // Posible lengths for the random scramble
 
     for (let i = 0; i < scrambleLenght; i++) {
         let move = moves[Math.floor(Math.random() * moves.length)];
-        console.log(move.includes(lastLayerMoved))
+        
         while (move.includes(lastLayerMoved)) {
             move = moves[Math.floor(Math.random() * moves.length)];
-            console.log(move)
-            break;//hasta acá no funciona, sigue devolviendo R' R2
         }
         
         scramble += `${move} `;
-        lastLayerMoved = move.substring(0,1);
 
+        lastLayerMoved = move.substring(0,1);
     }
   
     return scramble;
