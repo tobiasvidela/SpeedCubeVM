@@ -10,6 +10,7 @@
 body {
     height: 100vh;
     background: repeating-linear-gradient(-35deg,#ed1717,#f24d11, #f6830c,#fbb806,#ffee00);
+    background-size: 250%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -39,10 +40,14 @@ body {
     border-radius: 20px;
     box-shadow: 0 10px 17px rgba(0,0,0,0.4);
 }
+.scramble-header {
+    padding: 15px;
+    margin-bottom: 25px;
+}
 .title {
     font-size: 2rem;
     font-weight: bolder;
-    margin-bottom: 25px;
+    margin-right: 5px;
 }
 .scramble-333 {
     font-size: 1.5rem;
@@ -64,4 +69,37 @@ body {
     background-color: rgb(40,20,225);
     color: bisque;
     box-shadow: 0 0 15px rgba(40,20,225,0.5);
+}
+.select {
+    appearance: none;
+    border: none;
+    border-radius: 20px;
+    background: none;
+    padding: 2px;
+    margin-left: 5px;
+    margin-bottom: 20px;
+    font-size: 2rem;
+    font-weight: bold;
+    width: 100px;
+    color: #fff;
+    text-align: center;
+    transition: all .2s ease;
+}
+.select:hover {
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.4),
+                0 -5px 15px rgba(255, 255, 255, 0.4);
+}
+.select:focus {
+    outline: none;
+    color: #fff;
+    background: black;
+    border: 0;
+    border-radius: 20px;
+}
+
+@media screen (max-width: 400px) {
+    .scramble {
+        width: 100vw;
+    }    
 }

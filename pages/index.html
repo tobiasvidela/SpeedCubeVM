@@ -11,6 +11,8 @@
     <title>SpeedCubeVM | Tobías Videla G.</title>
     <!-- FAVICON -->
     <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/512/1362/1362043.png" type="image/x-icon">
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- CSS -->
     <link rel="stylesheet" href="../styles/style.css">
     <!-- BOOTSTRAP -->
@@ -19,7 +21,17 @@
 <body>
     <section class="scramble">
         <div class="scramble-generator d-flex flex-column">
-            <p class="title">Scramble Generator (3x3)</p>
+            <div class="scramble-header d-flex justify-content-center align-items-center">
+                <p class="title">Scramble Generator</p>
+                <select class="select cube" name="cube-type" id="cube-type">
+                    <option value="2x2"> 2x2 </option>
+                    <option value="3x3"> 3x3 </option>
+                    <option value="4x4"> 4x4 </option>
+                    <option value="5x5"> 5x5 </option>
+                    <option value="6x6"> 6x6 </option>
+                    <option value="7x7"> 7x7 </option>
+                </select>
+            </div>
             <p class="scramble-333" id="display">...</p>
             <button class="btn-generator text-center" id="btn-generator">Generate</button>
         </div>

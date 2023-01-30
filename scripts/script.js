@@ -1,15 +1,20 @@
 'use strict';
 
-// -------------------- DOM --------------------
-const generator = document.getElementById('btn-generator'),
-display = document.getElementById('display');
+// -------------------------------------------------
+// ---------------------- DOM ----------------------
+// -------------------------------------------------
+const generator = document.querySelector('#btn-generator'),
+      cubeType = document.querySelector('#cube-type'),
+      display = document.querySelector('#display');
 
 generator.addEventListener('click',() => {
-    let scramble = GenerateScramble();
+    let scramble = GenerateScramble(cubeType.value);
     return display.innerHTML = scramble;
 });
 
+// -------------------------------------------------
 // -------------------- CLASSES --------------------
+// -------------------------------------------------
 // --------- CUBES -----------
 class cube {
     constructor (type, min = 0, max = 2 * min) {
@@ -54,7 +59,7 @@ class cube {
         return Math.floor(Math.random() * (this.max - this.min + 1) + this.min);
     };
 };
-
+// ---- NxN Cubes ----
 const cube2x2 = new cube('2x2',8,11);
 const cube3x3 = new cube('3x3',17,25);
 const cube4x4 = new cube('4x4',40,45);
@@ -62,16 +67,42 @@ const cube5x5 = new cube('5x5',50,53);
 const cube6x6 = new cube('6x6',60,62);
 const cube7x7 = new cube('7x7',70,71);
 
+// -------------------------------------------------
+// ------------------- FUNCTIONS -------------------
+// -------------------------------------------------
+function GenerateScramble(selectedCube) {
 
-// -------------------- FUNCTIONS --------------------
-function GenerateScramble() {
+    //select the cube to scramble
+    let cubeSelected;
+
+    switch (selectedCube) {
+        case '2x2':
+            cubeSelected = cube2x2;
+            break;
+        case '4x4':
+            cubeSelected = cube4x4;
+            break;
+        case '5x5':
+            cubeSelected = cube5x5;
+            break;
+        case '6x6':
+            cubeSelected = cube6x6;
+            break;
+        case '7x7':
+            cubeSelected = cube7x7;
+            break;
+        default:
+            cubeSelected = cube3x3;
+            break;
+    };
+
     // Legal moves
-    const moves = ['U','D','L','R','F','B','U2','D2','L2','R2','F2','B2',"U'","D'","L'","R'","F'","B'"];
+    const moves = cubeSelected.moves;
   
     // Generate a random sequence of moves
     let scramble = '';
     let lastLayerMoved = null;
-    let scrambleLenght = GetRange(17,22); // Posible lengths for the random scramble
+    let scrambleLenght = cubeSelected.range(); // Posible lengths for the random scramble
 
     for (let i = 0; i < scrambleLenght; i++) {
         let move = moves[Math.floor(Math.random() * moves.length)];
@@ -86,10 +117,4 @@ function GenerateScramble() {
     };
   
     return scramble;
-}
-function GetRange(min = 0,max = min*2) {
-    //generate random length with the given range
-    let range = Math.floor(Math.random() * (max - min + 1) + min);
-
-    return range;
 };
