@@ -1,46 +1,208 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <!-- META -->
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="This is a Speedcubing Timer, my minimalist, elegant, powerful and beautiful tool for the speedcubers community. Credits to Flaticon.com">
-    <meta name="author" content="Tobías Videla G.">
-    <!-- TITLE -->
-    <title>SpeedCubeVM | Tobías Videla G.</title>
-    <!-- FAVICON -->
-    <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/512/1362/1362043.png" type="image/x-icon">
-    <!-- FONT AWESOME -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- CSS -->
-    <link rel="stylesheet" href="./styles/style.css">
-    <!-- BOOTSTRAP -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SpeedCube VM - Aprende y Mejora tus Habilidades</title>
+  <!-- FAVICON -->
+  <link rel="icon" href="./img/icon.png" type="image/png">
+  <!-- STYLES -->
+  <link rel="stylesheet" href="./css/styles.css">
+  <!-- FONTAWESOME -->
+  <script src="https://kit.fontawesome.com/5e1bffd3c1.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <section class="scramble">
-        <div class="scramble-generator d-flex flex-column">
-            <div class="scramble-header d-flex justify-content-center align-items-center">
-                <p class="title">Scramble Generator</p>
-                <select class="select cube" name="cube-type" id="cube-type">
-                    <option value="2x2"> 2x2 </option>
-                    <option value="3x3" selected> 3x3 </option>
-                    <option value="4x4"> 4x4 </option>
-                    <option value="5x5"> 5x5 </option>
-                    <option value="6x6"> 6x6 </option>
-                    <option value="7x7"> 7x7 </option>
-                </select>
-            </div>
-            <p class="scramble-333" id="display">...</p>
-            <button class="btn-generator text-center" id="btn-generator">Generate</button>
+  <!-- Menú de Navegación -->
+  <nav id="seccion-home">
+    <ul>
+      <li><a href="#seccion-home" active><i class="fa-solid fa-house"></i></a></li>
+      <li><a href="#seccion-inicio">Inicio</a></li>
+      <li><a href="#seccion-curiosidades"><i class="fa-solid fa-lightbulb"></i> Curiosidades</a></li>
+      <li><a href="#seccion-rompecabezas"><i class="fa-solid fa-layer-group"></i> Tipos</a></li>
+      <li><a href="#seccion-metodos"><i class="fa-solid fa-graduation-cap"></i> Aprender a Resolver</a></li>
+      <li><a href="#seccion-timer"><i class="fa-solid fa-stopwatch"></i> Timer Online</a></li>
+      <li><a href="#seccion-contacto"><i class="fa-solid fa-envelope"></i> Contacto</a></li>
+    </ul>
+  </nav>
+
+  <!-- Encabezado -->
+  <header>
+    <img src="./img/logo.png" alt="Logo de SpeedCube VM" width="50" height="50">
+    <h1>SpeedCube VM</h1>
+    <p>¡Domina el Cubo de Rubik y otros rompecabezas 3D! Aprende, practica y perfecciona tu técnica.</p>
+  </header>
+
+  <!-- Sección Inicio -->
+  <section id="seccion-inicio">
+    <div id="inicio">
+      <h2>¡Bienvenido a SpeedCube VM!</h2>
+      <p>En SpeedCube VM, te invitamos a formar parte de la increíble comunidad del speedcubing. ¿Quieres aprender a armar el Cubo de Rubik en tiempo récord? ¿O ya eres un cubero que busca mejorar su velocidad? Este es el lugar perfecto para ti.</p>
+      <p>Aquí encontrarás recursos, métodos, y curiosidades sobre el mundo del cubing. ¡Prepárate para llevar tus habilidades al siguiente nivel!</p>
+    </div>
+  </section>
+
+  <!-- Sección Curiosidades del Cubing -->
+  <section id="seccion-curiosidades">
+    <div id="curiosidades">
+      <h2>Curiosidades del Cubing</h2>
+      <p>¿Sabías que el récord mundial de resolver el Cubo de Rubik es de <strong>menos de 4 segundos</strong>? Existen competiciones de speedcubing en todo el mundo y cada vez más personas se suman a este emocionante desafío.</p>
+      <p>Además, existen más de 43 quintillones de combinaciones posibles para un cubo 3x3, pero cualquier cubo puede ser resuelto en <strong>20 movimientos o menos</strong>.</p>
+      <p>Lo más sorprendente es que el cubo mágico que todos imaginamos no es el único de su tipo. ¡Existen muchas más versiones asombrosas!</p>
+    </div>
+    <div id="record-mundial">
+      <img src="./img/max-park.avif" alt="Max Park, el muchacho prodigio.">
+      <h2>Max Park: 3,134 segundos</h2>
+    </div>
+  </section>
+
+  <!-- Sección Tipos de Rompecabezas 3D -->
+  <section id="seccion-rompecabezas">
+    <div id="rompecabezas">
+      <h2>Tipos de Rompecabezas 3D</h2>
+      <p>El cubo de Rubik no es el único rompecabezas tridimensional que existe. Hay una variedad de rompecabezas fascinantes, entre los cuales destacan los siguientes:</p>
+    </div>
+
+    <div id="tarjetas-rompecabezas">
+      <!-- Tarjeta NxN -->
+      <div class="tarjeta">
+        <img src="./img/cubo-nxn.avif" alt="NxN">
+        <h3>NxN</h3>
+        <p>Cubos, como el que todos conocemos, pero con más o menos cantidad de capas.</p>
+      </div>
+      
+      <!-- Tarjeta Megaminx -->
+      <div class="tarjeta">
+        <img src="./img/cubo-megaminx.avif" alt="Megaminx">
+        <h3>Megaminx</h3>
+        <p>Un dodecaedro con un patrón similar al cubo de Rubik.</p>
+      </div>
+
+      <!-- Tarjeta Pyraminx -->
+      <div class="tarjeta">
+        <img src="./img/cubo-pyraminx.avif" alt="Pyraminx">
+        <h3>Pyraminx</h3>
+        <p>Un rompecabezas en forma de pirámide.</p>
+      </div>
+
+      <!-- Tarjeta Skewb -->
+      <div class="tarjeta">
+        <img src="./img/cubo-skewb.avif" alt="Skewb">
+        <h3>Skewb</h3>
+        <p>Un cubo que se mueve por sus esquinas.</p>
+      </div>
+
+      <!-- Tarjeta Square-1 -->
+      <div class="tarjeta">
+        <img src="./img/cubo-square1.avif" alt="Square-1">
+        <h3>Square-1</h3>
+        <p>Un cubo que cambia de forma mientras se resuelve.</p>
+      </div>
+
+      <!-- Tarjeta Mirror Cube -->
+      <div class="tarjeta">
+        <img src="./img/cubo-mirror.avif" alt="Mirror Cube">
+        <h3>Mirror</h3>
+        <p>Un cubo que no tiene piezas iguales.</p>
+      </div>
+      
+      <!-- Tarjeta Gear -->
+      <div class="tarjeta">
+        <img src="./img/cubo-gear.avif" alt="Gear Cube">
+        <h3>Gear</h3>
+        <p>Un cubo con engranajes.</p>
+      </div>
+      
+      <!-- Tarjeta Otros -->
+      <div class="tarjeta">
+        <img src="./img/cubo-time-machine.avif" alt="Time-Machine Cube">
+        <h3>Otros</h3>
+        <p>Y muchas más variantes, complejas y extravagantes, simples y sencillas, para todos los gustos.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Sección Métodos de Resolución -->
+  <section id="seccion-metodos">
+    <div id="metodos">
+      <h2>Métodos de Resolución</h2>
+      <p>Los métodos de resolución son técnicas utilizadas para resolver el Cubo de Rubik. Existen varios enfoques, cada uno con sus propias ventajas. Por ejemplo, resolverlo capa por capa, o resolverlo por bloques. Algunos de lo métodos más utilizados son:</p>
+      <div class="grid-container">
+        <div class="tarjeta">
+          <iframe width="853" height="480" src="https://www.youtube.com/embed/GyY0OxDk5lI" title="Resolver cubo de Rubik 3x3 (Principiantes) | Rápido y Fácil | EL MEJOR TUTORIAL | Español" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          <h3>Método de Principiantes</h3>
+          <p>Un método paso a paso ideal para quienes recién comienzan.</p>
+          <button class="btn">Aprender Más</button>
         </div>
-    </section>
-    <a class="credits" href="https://github.com/tobiasvidela" target="_blank" rel="noopener noreferrer">
-        Created by Tobías Videla G. (2023) &#169 | Work In Progress...
-    </a>
-    <!-- SCRIPTS -->
-    <script src="./scripts/script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+        <div class="tarjeta">
+          <iframe width="853" height="480" src="https://www.youtube.com/embed/d_hR8pn67wA" title="Resolver cubo de Rubik 3x3 (FRIDRICH COMPLETO) | HD | Tutorial | Español" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          <h3>Método CFOP (Fridrich)</h3>
+          <p>El método más popular entre los speedcubers, dividido en cuatro pasos.</p>
+          <button class="btn">Aprender Más</button>
+        </div>
+        <div class="tarjeta">
+          <iframe width="853" height="480" src="https://www.youtube.com/embed/U8RvqWXLDV0" title="Método Roux | El Rival de Fridrich 🔥" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          <h3>Método Roux</h3>
+          <p>Se enfoca en la construcción de bloques y es muy eficiente.</p>
+          <button class="btn">Aprender Más</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Sección Timer Online -->
+  <section id="seccion-timer">
+    <div id="timer">
+      <h2>¡Pon a prueba tu velocidad!</h2>
+      <p>
+        Usa nuestro <a href="./pages/scramble_generator.html" target="_blank">timer online</a> 
+        para medir tus tiempos y mejorar tus habilidades de resolución.
+      </p>
+      <a href="./pages/scramble_generator.html" target="_blank" class="btn">Ir al Timer <i class="fa-solid fa-stopwatch"></i></a>
+    </div>
+  </section>
+
+
+  <!-- Sección Contacto -->
+  <section id="seccion-contacto">
+    <div id="contacto">
+      <h2>Contacto</h2>
+      <p>¿Tienes alguna duda o quieres unirte a la comunidad? Completa el siguiente formulario para ponerte en contacto con nosotros.</p>
+
+      <form id="form-contacto" action="#" method="post">
+        <!-- Campo para el Nombre -->
+        <div class="form-group">
+          <label for="nombre">Nombre</label>
+          <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+        </div>
+
+        <!-- Campo para el Email -->
+        <div class="form-group">
+          <label for="email">Correo Electrónico</label>
+          <input type="email" id="email" name="email" placeholder="Tu correo electrónico" required>
+        </div>
+
+        <!-- Campo para el Mensaje -->
+        <div class="form-group">
+          <label for="mensaje">Mensaje</label>
+          <textarea id="mensaje" name="mensaje" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
+        </div>
+
+        <!-- Botón de Envío -->
+        <button type="submit" class="btn"><i class="fa-solid fa-envelope"></i> Enviar Mensaje</button>
+      </form>
+    </div>
+  </section>
+
+
+  <!-- Pie de página -->
+  <footer>
+    <p>
+      &copy; 2024 SpeedCube VM. Página web desarrollada con la ayuda de Flaticon, Freepik, FontAwesome, PicFLow, ClaudeAI y OpenAI.
+  </footer>
+  
+  <!-- VOLVER -->
+  <a id="volver" href="#seccion-home"><i class="fa-solid fa-house"></i></a>
 </body>
 </html>

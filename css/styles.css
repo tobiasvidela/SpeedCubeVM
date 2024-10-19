@@ -1,0 +1,572 @@
+/* Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+/* Afacad Flux */
+@import url('https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap');
+
+:root {
+  --Negro: #000000;
+  --Blanco: #FFFFFF;
+  --Amarillo: #F7F700;
+  --Rojo: #D52B1E;
+  --Naranja: #FF7700;
+  --Verde: #1FB464;
+  --Azul: #0083CA;
+  --Poppins: 'Poppins', sans-serif;
+  --Afacad_Flux: "Afacad Flux", sans-serif;
+}
+
+/* * {
+  border: solid 1px red;
+} */
+
+/* GENERAL */
+body {
+  font-family: var(--Poppins);
+  margin: 0;
+  padding: 0;
+  background-color: var(--Blanco);
+}
+
+/* HEADER */
+header {
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-template-columns: auto auto;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  height: 100vh;
+  padding: 1em 5em;
+}
+
+header img {
+  grid-row: 1 / 2;
+  grid-column: 1 / 2;
+  width: 200px;
+  height: 200px;
+}
+
+header h1 {
+  grid-row: 1 / 2;
+  grid-column: 2 / 3;
+  font-size: 72px;
+  font-family: var(--Afacad_Flux);
+}
+
+header p {
+  grid-row: 2 / 3;
+  grid-column: 1 / 3;
+  font-size: 18px;
+  color: var(--Rojo);
+  align-self: start;
+  margin-top: 0;
+  /* font-family: var(--Afacad_Flux); */
+}
+
+/* MENÚ DE NAVEGACIÓN */
+nav {
+  background-color: var(--Verde);
+  padding: 10px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+nav ul li {
+  margin: 0 15px;
+}
+
+nav ul li i {
+  margin: 0 5px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: var(--Blanco);
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px 15px;
+  display: inline-block;
+  transition: background-color 0.3s, color 0.3s;
+  border-radius: 5px;
+}
+
+nav ul li a:hover,
+nav ul li a:focus {
+  background-color: var(--Rojo);
+  color: var(--Blanco);
+}
+
+/* SECCIÓN INICIO */
+#seccion-inicio {
+  background-image: url("../img/seccion-inicio.avif");
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: 50px;
+  margin: auto;
+  min-height: 100vh;
+}
+
+#inicio {
+  background-color: var(--Blanco);
+  color: var(--Verde);
+  padding: 40px;
+  margin: 20px auto;
+  max-width: 800px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#inicio h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: var(--Rojo);
+}
+
+#inicio p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin: 10px 0;
+}
+
+/* SECCIÓN CURIOSIDADES DEL CUBING */
+#seccion-curiosidades {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Dos columnas: una para las curiosidades, otra para la imagen */
+  gap: 50px; /* Espacio entre las columnas */
+  padding: 0 50px;
+  margin: 100px auto;
+  min-height: 100vh;
+  align-items: center; /* Alinea verticalmente el contenido en el centro */
+}
+
+#curiosidades {
+  background-color: var(--Verde);
+  color: var(--Blanco);
+  padding: 40px;
+  max-width: 800px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#curiosidades h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: var(--Rojo);
+}
+
+#curiosidades p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin: 10px 0;
+}
+
+#record-mundial {
+  background-color: var(--Blanco);
+  padding: 40px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+#record-mundial img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#record-mundial h2 {
+  font-size: 24px;
+  color: var(--Verde);
+  margin-top: 20px;
+}
+
+/* SECCIÓN TIPOS DE ROMPECABEZAS 3D */
+#seccion-rompecabezas {
+  padding: 50px;
+  margin: 100px auto;
+  min-height: 100vh;
+}
+
+#rompecabezas {
+  background-color: var(--Rojo);
+  color: var(--Blanco);
+  padding: 40px;
+  margin: 0 auto 50px auto;
+  max-width: 800px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#rompecabezas h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+#rompecabezas p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+/* Tarjetas de los tipos de rompecabezas */
+#tarjetas-rompecabezas {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+#tarjetas-rompecabezas .tarjeta {
+  background-color: var(--Blanco);
+  color: var(--Negro);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#tarjetas-rompecabezas .tarjeta:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+#tarjetas-rompecabezas .tarjeta img {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  margin-bottom: 15px;
+}
+
+#tarjetas-rompecabezas .tarjeta h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: var(--Rojo);
+}
+
+#tarjetas-rompecabezas .tarjeta p {
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+/* SECCIÓN MÉTODOS DE RESOLUCIÓN */
+#seccion-metodos {
+  padding: 50px;
+  margin: 100px auto;
+  min-height: 100vh;
+}
+
+#metodos {
+  background-color: var(--Azul);
+  color: var(--Blanco);
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 900px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#metodos h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: var(--Blanco);
+}
+
+#metodos p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+/* Contenedor grid que se adapta */
+#seccion-metodos .grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  padding: 20px 0;
+}
+
+/* Estilo para cada tarjeta */
+#seccion-metodos .tarjeta {
+  background-color: var(--Blanco);
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s, box-shadow 0.3s;
+  height: auto;
+}
+
+#seccion-metodos .tarjeta:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+#seccion-metodos .tarjeta iframe {
+  width: 100%;
+  height: 180px;
+  border: none;
+  border-radius: 10px;
+}
+
+#seccion-metodos .tarjeta h3 {
+  font-size: 24px;
+  margin: 15px 0;
+  color: var(--Azul);
+}
+
+#seccion-metodos .tarjeta p {
+  font-size: 16px;
+  margin-bottom: 15px;
+  color: var(--Azul);
+}
+
+#seccion-metodos .btn {
+  background-color: var(--Azul);
+  color: var(--Blanco);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+#seccion-metodos .btn:hover {
+  background-color: var(--Blanco);
+  color: var(--Azul);
+}
+
+/* SECCIÓN TIMER ONLINE */
+#seccion-timer {
+  padding: 50px;
+  margin: 100px auto;
+  min-height: 100vh;
+}
+
+#timer {
+  background-color: var(--Naranja);
+  color: var(--Blanco);
+  padding: 40px;
+  margin: 20px auto;
+  max-width: 800px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Sombra más suave */
+  text-align: center; /* Alinear todo el contenido al centro */
+}
+
+#timer h2 {
+  font-size: 32px; /* Aumentar el tamaño de la fuente */
+  margin-bottom: 20px;
+  color: var(--Blanco);
+  font-weight: 700; /* Más negrita para destacar */
+}
+
+#timer p {
+  font-size: 18px;
+  line-height: 1.8; /* Mayor espaciado entre líneas para mejorar la legibilidad */
+  margin-bottom: 20px;
+}
+
+#timer a {
+  color: var(--Azul);
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s, text-decoration 0.3s; /* Transiciones más suaves */
+}
+
+#timer a:hover {
+  text-decoration: underline;
+  color: var(--Blanco);
+}
+
+/* Botón personalizado */
+#timer .btn {
+  background-color: var(--Azul);
+  color: var(--Blanco);
+  padding: 12px 24px;
+  font-size: 18px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s, color 0.3s;
+  display: inline-block;
+  margin-top: 20px; /* Espaciado entre el párrafo y el botón */
+}
+
+#timer .btn:hover {
+  background-color: var(--Blanco); /* Cambia el fondo a rojo al hacer hover */
+  color: var(--Azul); /* Mantiene el texto blanco */
+}
+
+/* SECCIÓN CONTACTO */
+#seccion-contacto {
+  padding: 50px;
+  margin: 100px auto;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--Blanco); /* Fondo blanco para la sección */
+}
+
+#contacto {
+  background-color: var(--Amarillo); /* Fondo amarillo para el contenedor de contacto */
+  color: var(--Negro); /* Texto en negro para contraste */
+  padding: 40px;
+  max-width: 600px;
+  width: 100%;
+  border-radius: 15px; /* Borde más redondeado */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Sombra suave */
+  text-align: center;
+}
+
+#contacto h2 {
+  font-size: 32px;
+  margin-bottom: 25px;
+  color: var(--Negro); /* Título en azul para contraste */
+  font-weight: 700; /* Hace el título más llamativo */
+}
+
+#contacto p {
+  font-size: 18px;
+  line-height: 1.8;
+  margin-bottom: 25px;
+  color: var(--Negro); /* Texto en negro para legibilidad */
+}
+
+#contacto a {
+  color: var(--Rojo); /* Enlaces en rojo */
+  text-decoration: none;
+  font-weight: bold;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s ease-in-out;
+}
+
+#contacto a:hover {
+  border-bottom: 2px solid var(--Rojo); /* Subraya el enlace al pasar el mouse */
+}
+
+#form-contacto .form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+#form-contacto label {
+  font-size: 16px;
+  color: var(--Negro); /* Etiquetas en negro */
+  display: block;
+  margin-bottom: 8px;
+}
+
+#form-contacto textarea {
+  resize: vertical; /* Permite redimensionar solo en la dirección vertical */
+}
+
+#form-contacto input, #form-contacto textarea {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 8px; /* Bordes redondeados */
+  margin-bottom: 15px;
+  transition: border-color 0.3s ease;
+}
+
+#form-contacto input:focus, #form-contacto textarea:focus {
+  border-color: var(--Azul); /* Cambia el borde a azul cuando el campo está enfocado */
+  outline: none;
+}
+
+#form-contacto button {
+  background-color: var(--Blanco); /* Botón con fondo azul */
+  color: var(--Negro); /* Texto en blanco para contraste */
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+  margin-top: 10px;
+  width: 100%;
+}
+
+#form-contacto button:hover {
+  background-color: var(--Rojo);
+  color: var(--Blanco);
+}
+
+/* PIE DE PÁGINA */
+footer {
+  background-color: var(--Azul);
+  color: var(--Blanco);
+  padding: 5px;
+  text-align: center;
+  bottom: 0;
+  width: inherit;
+  /* border-top: 2px solid var(--Negro); */
+}
+
+footer p {
+  margin: 0;
+  font-size: 16px;
+}
+
+/* VOLVER */
+#volver {
+  text-decoration: none;
+  color: var(--Negro);
+  font-size: 18px;
+  display: inline-block;
+  border-radius: 5px;
+  padding: 10px 15px;
+  margin: 10px;
+  background-color: var(--Blanco); /* Fondo blanco para que resalte */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  position: fixed; /* Hace que el botón esté fijo en la pantalla */
+  bottom: 5px; /* Lo sitúa en la parte inferior de la pantalla */
+  right: 15px; /* Lo alinea a la derecha */
+  z-index: 9999; /* Asegura que esté por encima del contenido */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Transiciones suaves */
+}
+
+#volver:hover {
+  background-color: var(--Rojo); /* Cambia el fondo a rojo al pasar el mouse */
+  color: var(--Blanco); /* Cambia el texto a blanco */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* RESPONSIVE */
+@media (max-width: 999px) {
+  #seccion-curiosidades {
+    grid-template-columns: 1fr; /* Una columna en pantallas más pequeñas */
+  }
+}
