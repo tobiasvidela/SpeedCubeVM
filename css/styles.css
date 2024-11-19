@@ -37,6 +37,7 @@ header {
   gap: 1em;
   height: 100vh;
   padding: 1em 5em;
+  margin-top: 67px;
 }
 
 header img {
@@ -65,9 +66,19 @@ header p {
 
 /* MENÚ DE NAVEGACIÓN */
 nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
   background-color: var(--Verde);
   padding: 10px 0;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.nav-hidden {
+  transform: translateY(-100%);
 }
 
 nav ul {
@@ -97,8 +108,8 @@ nav ul li a {
   border-radius: 5px;
 }
 
-nav ul li a:hover,
-nav ul li a:focus {
+nav ul li a.active,
+nav ul li a:hover {
   background-color: var(--Rojo);
   color: var(--Blanco);
 }
@@ -239,7 +250,7 @@ nav ul li a:focus {
 }
 
 #tarjetas-rompecabezas .tarjeta:hover {
-  transform: translateY(-5px);
+  transform: translateY(5px);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
@@ -259,6 +270,20 @@ nav ul li a:focus {
 #tarjetas-rompecabezas .tarjeta p {
   font-size: 16px;
   line-height: 1.4;
+}
+
+#tarjetas-rompecabezas .tarjeta .precio {
+  font-size: 16px;
+  color: var(--Azul);
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.5s ease, max-height 0.5s ease;
+}
+
+#tarjetas-rompecabezas .tarjeta .precio.visible {
+  opacity: 1;
+  max-height: 20px;
 }
 
 /* SECCIÓN MÉTODOS DE RESOLUCIÓN */
@@ -354,7 +379,7 @@ nav ul li a:focus {
 #seccion-timer {
   padding: 50px;
   margin: 100px auto;
-  min-height: 100vh;
+  min-height: 70vh;
 }
 
 #timer {
@@ -364,20 +389,20 @@ nav ul li a:focus {
   margin: 20px auto;
   max-width: 800px;
   border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Sombra más suave */
-  text-align: center; /* Alinear todo el contenido al centro */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  text-align: center;
 }
 
 #timer h2 {
-  font-size: 32px; /* Aumentar el tamaño de la fuente */
+  font-size: 32px;
   margin-bottom: 20px;
   color: var(--Blanco);
-  font-weight: 700; /* Más negrita para destacar */
+  font-weight: 700;
 }
 
 #timer p {
   font-size: 18px;
-  line-height: 1.8; /* Mayor espaciado entre líneas para mejorar la legibilidad */
+  line-height: 1.8;
   margin-bottom: 20px;
 }
 
@@ -385,7 +410,7 @@ nav ul li a:focus {
   color: var(--Azul);
   text-decoration: none;
   font-weight: bold;
-  transition: color 0.3s, text-decoration 0.3s; /* Transiciones más suaves */
+  transition: color 0.3s, text-decoration 0.3s;
 }
 
 #timer a:hover {
@@ -404,12 +429,12 @@ nav ul li a:focus {
   font-weight: bold;
   transition: background-color 0.3s, color 0.3s;
   display: inline-block;
-  margin-top: 20px; /* Espaciado entre el párrafo y el botón */
+  margin-top: 20px;
 }
 
 #timer .btn:hover {
-  background-color: var(--Blanco); /* Cambia el fondo a rojo al hacer hover */
-  color: var(--Azul); /* Mantiene el texto blanco */
+  background-color: var(--Blanco);
+  color: var(--Azul);
 }
 
 /* SECCIÓN CONTACTO */
@@ -420,36 +445,43 @@ nav ul li a:focus {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--Blanco); /* Fondo blanco para la sección */
+  background-color: var(--Blanco);
 }
 
 #contacto {
-  background-color: var(--Amarillo); /* Fondo amarillo para el contenedor de contacto */
-  color: var(--Negro); /* Texto en negro para contraste */
+  background-color: var(--Amarillo);
+  color: var(--Negro);
   padding: 40px;
   max-width: 600px;
   width: 100%;
-  border-radius: 15px; /* Borde más redondeado */
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Sombra suave */
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
   text-align: center;
 }
 
 #contacto h2 {
   font-size: 32px;
   margin-bottom: 25px;
-  color: var(--Negro); /* Título en azul para contraste */
-  font-weight: 700; /* Hace el título más llamativo */
+  color: var(--Negro);
+  font-weight: 700;
+}
+
+#contacto h3 {
+  font-size: 24px;
+  margin-bottom: 15px;
+  color: var(--Negro);
+  font-weight: 600;
 }
 
 #contacto p {
   font-size: 18px;
   line-height: 1.8;
   margin-bottom: 25px;
-  color: var(--Negro); /* Texto en negro para legibilidad */
+  color: var(--Negro);
 }
 
 #contacto a {
-  color: var(--Rojo); /* Enlaces en rojo */
+  color: var(--Rojo);
   text-decoration: none;
   font-weight: bold;
   border-bottom: 2px solid transparent;
@@ -457,7 +489,7 @@ nav ul li a:focus {
 }
 
 #contacto a:hover {
-  border-bottom: 2px solid var(--Rojo); /* Subraya el enlace al pasar el mouse */
+  border-bottom: 2px solid var(--Rojo);
 }
 
 #form-contacto .form-group {
@@ -467,13 +499,13 @@ nav ul li a:focus {
 
 #form-contacto label {
   font-size: 16px;
-  color: var(--Negro); /* Etiquetas en negro */
+  color: var(--Negro);
   display: block;
   margin-bottom: 8px;
 }
 
 #form-contacto textarea {
-  resize: vertical; /* Permite redimensionar solo en la dirección vertical */
+  resize: vertical;
 }
 
 #form-contacto input, #form-contacto textarea {
@@ -482,19 +514,19 @@ nav ul li a:focus {
   padding: 12px;
   font-size: 16px;
   border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 8px; /* Bordes redondeados */
+  border-radius: 8px;
   margin-bottom: 15px;
   transition: border-color 0.3s ease;
 }
 
 #form-contacto input:focus, #form-contacto textarea:focus {
-  border-color: var(--Azul); /* Cambia el borde a azul cuando el campo está enfocado */
+  border-color: var(--Azul);
   outline: none;
 }
 
 #form-contacto button {
-  background-color: var(--Blanco); /* Botón con fondo azul */
-  color: var(--Negro); /* Texto en blanco para contraste */
+  background-color: var(--Blanco);
+  color: var(--Negro);
   padding: 12px 20px;
   border: none;
   border-radius: 8px;
@@ -510,6 +542,105 @@ nav ul li a:focus {
   color: var(--Blanco);
 }
 
+/* Estilo de Checkbox */
+.checkbox-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 10px;
+  padding: 10px;
+  background-color: var(--Blanco);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo de cada input y label */
+.checkbox-container input[type="checkbox"] {
+  /*  Ocultar el checkbox por defecto */
+  display: none;
+}
+
+.checkbox-container label {
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer;
+  font-size: 16px;
+  color: var(--Negro);
+  display: inline-block;
+  transition: color 0.3s ease;
+}
+
+/* Personalización del checkbox */
+.checkbox-container label::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  background-color: var(--Blanco);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Estilo para el estado seleccionado */
+.checkbox-container input[type="checkbox"]:checked + label::before {
+  background-color: var(--Azul);
+  border-color: var(--Azul);
+  content: "✔";
+  color: var(--Blanco);
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
+
+/* Estilo general del select */
+
+#nivel {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  background-color: var(--Blanco);
+  color: var(--Negro);
+  appearance: none;
+  min-height: 45px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+#nivel:focus {
+  border-color: var(--Azul);
+  background-color: var(--Blanco);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  outline: none;
+}
+
+#nivel:hover {
+  border-color: var(--Azul);
+}
+
+#nivel option {
+  padding: 10px;
+  font-size: 16px;
+  background-color: var(--Blanco);
+  color: var(--Negro);
+}
+
+label[for="nivel"] {
+  font-size: 16px;
+  margin-bottom: 8px;
+  display: block;
+}
+
 /* PIE DE PÁGINA */
 footer {
   background-color: var(--Azul);
@@ -518,35 +649,11 @@ footer {
   text-align: center;
   bottom: 0;
   width: inherit;
-  /* border-top: 2px solid var(--Negro); */
 }
 
 footer p {
   margin: 0;
   font-size: 16px;
-}
-
-/* VOLVER */
-#volver {
-  text-decoration: none;
-  color: var(--Negro);
-  font-size: 18px;
-  display: inline-block;
-  border-radius: 5px;
-  padding: 10px 15px;
-  margin: 10px;
-  background-color: var(--Blanco); /* Fondo blanco para que resalte */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
-  position: fixed; /* Hace que el botón esté fijo en la pantalla */
-  bottom: 5px; /* Lo sitúa en la parte inferior de la pantalla */
-  right: 15px; /* Lo alinea a la derecha */
-  z-index: 9999; /* Asegura que esté por encima del contenido */
-  transition: background-color 0.3s ease, color 0.3s ease; /* Transiciones suaves */
-}
-
-#volver:hover {
-  background-color: var(--Rojo); /* Cambia el fondo a rojo al pasar el mouse */
-  color: var(--Blanco); /* Cambia el texto a blanco */
 }
 
 

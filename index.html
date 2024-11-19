@@ -10,13 +10,16 @@
   <link rel="stylesheet" href="./css/styles.css">
   <!-- FONTAWESOME -->
   <script src="https://kit.fontawesome.com/5e1bffd3c1.js" crossorigin="anonymous"></script>
+  <!-- COMPORTAMIENTO -->
+  <script src="js/js_visual.js" defer></script>
+  <script src="js/js_logica.js" defer></script>
 </head>
 <body>
   <!-- Menú de Navegación -->
   <nav id="seccion-home">
     <ul>
-      <li><a href="#seccion-home" active><i class="fa-solid fa-house"></i></a></li>
-      <li><a href="#seccion-inicio">Inicio</a></li>
+      <!-- <li><a href="#seccion-home"><i class="fa-solid fa-house"></i></a></li> -->
+      <li><a href="#seccion-inicio"><i class="fa-solid fa-house"></i> Inicio</a></li>
       <li><a href="#seccion-curiosidades"><i class="fa-solid fa-lightbulb"></i> Curiosidades</a></li>
       <li><a href="#seccion-rompecabezas"><i class="fa-solid fa-layer-group"></i> Tipos</a></li>
       <li><a href="#seccion-metodos"><i class="fa-solid fa-graduation-cap"></i> Aprender a Resolver</a></li>
@@ -64,59 +67,67 @@
 
     <div id="tarjetas-rompecabezas">
       <!-- Tarjeta NxN -->
-      <div class="tarjeta">
+      <div class="tarjeta" onclick="priceToggle(this)">
         <img src="./img/cubo-nxn.avif" alt="NxN">
         <h3>NxN</h3>
         <p>Cubos, como el que todos conocemos, pero con más o menos cantidad de capas.</p>
+        <p class="precio">(3x3) ~ USD $5</p>
       </div>
       
       <!-- Tarjeta Megaminx -->
-      <div class="tarjeta">
+      <div class="tarjeta" onclick="priceToggle(this)">
         <img src="./img/cubo-megaminx.avif" alt="Megaminx">
         <h3>Megaminx</h3>
         <p>Un dodecaedro con un patrón similar al cubo de Rubik.</p>
+        <p class="precio">~ USD $12</p>
       </div>
-
+      
       <!-- Tarjeta Pyraminx -->
-      <div class="tarjeta">
+      <div class="tarjeta" onclick="priceToggle(this)">
         <img src="./img/cubo-pyraminx.avif" alt="Pyraminx">
         <h3>Pyraminx</h3>
         <p>Un rompecabezas en forma de pirámide.</p>
+        <p class="precio">~ USD $7.5</p>
       </div>
-
+      
       <!-- Tarjeta Skewb -->
-      <div class="tarjeta">
+      <div class="tarjeta" onclick="priceToggle(this)">
         <img src="./img/cubo-skewb.avif" alt="Skewb">
         <h3>Skewb</h3>
         <p>Un cubo que se mueve por sus esquinas.</p>
+        <p class="precio">~ USD $9</p>
       </div>
-
+      
       <!-- Tarjeta Square-1 -->
-      <div class="tarjeta">
+      <div class="tarjeta" onclick="priceToggle(this)">
         <img src="./img/cubo-square1.avif" alt="Square-1">
         <h3>Square-1</h3>
         <p>Un cubo que cambia de forma mientras se resuelve.</p>
+        <p class="precio">~ USD $10</p>
       </div>
 
       <!-- Tarjeta Mirror Cube -->
-      <div class="tarjeta">
+      <div class="tarjeta" onclick="priceToggle(this)">
         <img src="./img/cubo-mirror.avif" alt="Mirror Cube">
         <h3>Mirror</h3>
         <p>Un cubo que no tiene piezas iguales.</p>
+        <p class="precio">~ USD $6</p>
       </div>
       
       <!-- Tarjeta Gear -->
-      <div class="tarjeta">
+      <div class="tarjeta" onclick="priceToggle(this)">
         <img src="./img/cubo-gear.avif" alt="Gear Cube">
         <h3>Gear</h3>
         <p>Un cubo con engranajes.</p>
+        <p class="precio">~ USD $10</p>
       </div>
       
       <!-- Tarjeta Otros -->
-      <div class="tarjeta">
+      <div class="tarjeta" onclick="priceToggle(this)">
         <img src="./img/cubo-time-machine.avif" alt="Time-Machine Cube">
         <h3>Otros</h3>
         <p>Y muchas más variantes, complejas y extravagantes, simples y sencillas, para todos los gustos.</p>
+        <p class="precio">USD $1 - $100+</p>
       </div>
     </div>
   </section>
@@ -167,34 +178,163 @@
   <!-- Sección Contacto -->
   <section id="seccion-contacto">
     <div id="contacto">
-      <h2>Contacto</h2>
-      <p>¿Tienes alguna duda o quieres unirte a la comunidad? Completa el siguiente formulario para ponerte en contacto con nosotros.</p>
+      <h2>Agenda una reunión conmigo</h2>
+      <p>
+        ¿Deseas por fin aprender a resolver el cubo mágico, conocer más sobre el mundo de los rompecabezas 3D, o mejorar tus habilidades? 
+        Completa el siguiente formulario para ponerte en contacto conmigo.
+      </p>
 
       <form id="form-contacto" action="#" method="post">
         <!-- Campo para el Nombre -->
         <div class="form-group">
           <label for="nombre">Nombre</label>
-          <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+          <input 
+            type="text" 
+            id="nombre" 
+            name="nombre" 
+            placeholder="Tu nombre" 
+            aria-label="Nombre completo"
+            required>
+        </div>
+
+        <!-- Campo para la Edad -->
+        <div class="form-group">
+          <label for="edad">Edad</label>
+          <input 
+            type="number" 
+            id="edad" 
+            name="edad" 
+            placeholder="Tu edad" 
+            aria-label="Edad en años"
+            required>
+          <small class="edad-error" id="edad-error" aria-live="polite"></small>
+        </div>
+
+        <!-- Campo para el Teléfono -->
+        <div class="form-group">
+          <label for="telefono">Teléfono</label>
+          <input 
+            type="number" 
+            id="telefono" 
+            name="telefono" 
+            placeholder="2657292707" 
+            aria-label="Teléfono"
+            required>
         </div>
 
         <!-- Campo para el Email -->
         <div class="form-group">
           <label for="email">Correo Electrónico</label>
-          <input type="email" id="email" name="email" placeholder="Tu correo electrónico" required>
+          <input 
+            type="email" 
+            id="email" 
+            name="email" 
+            placeholder="ejemplo@correo.com" 
+            aria-label="Correo Electrónico"
+            required>
+        </div>
+
+        <!-- Campos para el rango de fechas -->
+        <h3>Elige las fechas para programar nuestra reunión</h3>
+        <p>Selecciona un rango de fechas que se ajuste a tu disponibilidad para mayor flexibilidad.</p>
+        <div class="form-group">
+          <label for="fecha_inicio">Fecha de Inicio</label>
+          <input 
+            type="date" 
+            id="fecha_inicio" 
+            name="fecha_inicio" 
+            aria-label="Fecha de inicio de la reunión"
+            required>
+        </div>
+
+        <div class="form-group">
+          <label for="fecha_fin">Fecha de Fin</label>
+          <input 
+            type="date" 
+            id="fecha_fin" 
+            name="fecha_fin" 
+            aria-label="Fecha de fin de la reunión"
+            required>
+        </div>
+        
+        <!-- Campo para elegir tipos de cubos -->
+        <h3>Selecciona los tipos de cubos de tu interés</h3>
+        <div class="form-group checkbox-container">
+          <input type="checkbox" id="cubo_3x3" name="tipos_cubos[]" value="3x3">
+          <label for="cubo_3x3">Cubo 3x3</label>
+
+          <input type="checkbox" id="cubo_nxn" name="tipos_cubos[]" value="NxN">
+          <label for="cubo_nxn">Cubos NxN (2x2, 4x4, 6x6, 7x7, etc.)</label>
+
+          <input type="checkbox" id="megaminx" name="tipos_cubos[]" value="Megaminx">
+          <label for="megaminx">Megaminx</label>
+
+          <input type="checkbox" id="piraminx" name="tipos_cubos[]" value="Piraminx">
+          <label for="piraminx">Piraminx</label>
+
+          <input type="checkbox" id="mirror" name="tipos_cubos[]" value="Mirror">
+          <label for="mirror">Cubo Mirror</label>
+
+          <input type="checkbox" id="square1" name="tipos_cubos[]" value="Square-1">
+          <label for="square1">Square-1</label>
+
+          <input type="checkbox" id="skewb" name="tipos_cubos[]" value="Skewb">
+          <label for="skewb">Skewb</label>
+
+          <input type="checkbox" id="otros_cubos" name="tipos_cubos[]" value="Otros">
+          <label for="otros_cubos">Otras variantes</label>
+
+          <input type="checkbox" id="seleccionar_todo" name="todos" value="todos">
+          <label for="seleccionar_todo">Todos</label>
+        </div>
+
+        <!-- Campo para elegir el nivel -->
+        <h3>Nivel de aprendizaje</h3>
+        <div class="form-group">
+          <label for="nivel">Selecciona al menos un nivel que deseas alcanzar:</label>
+          <select name="nivel" id="nivel" aria-label="Nivel de aprendizaje" multiple required>
+            <option value="Novato">Novato</option>
+            <option value="Principiante">Principiante</option>
+            <option value="Intermedio">Intermedio</option>
+            <option value="Avanzado">Avanzado</option>
+          </select>
         </div>
 
         <!-- Campo para el Mensaje -->
         <div class="form-group">
           <label for="mensaje">Mensaje</label>
-          <textarea id="mensaje" name="mensaje" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
+          <textarea 
+            id="mensaje" 
+            name="mensaje" 
+            rows="5" 
+            placeholder="Escribe tu mensaje aquí..." 
+            aria-label="Mensaje para agendar la reunión"
+            required></textarea>
+        </div>
+
+        <!-- Campo para calcular -->
+        <h3>¿Hace cuánto tiempo conocés el cubo de Rubik?</h3>
+        <div class="form-group">
+          <label for="tiempo_cubo">Coloca el tiempo en años:</label>
+          <input
+            type="number"
+            id="tiempo_cubo" 
+            name="tiempo_cubo" 
+            placeholder="Por ejemplo, 3" 
+            aria-label="Años desde que conocés el cubo de Rubik"
+            min="0"
+            max="99"
+            required></input>
+            <small class="pregunta-error" id="pregunta-error" aria-live="polite"></small>
         </div>
 
         <!-- Botón de Envío -->
-        <button type="submit" class="btn"><i class="fa-solid fa-envelope"></i> Enviar Mensaje</button>
+        <button type="submit" class="btn">
+          <i class="fa-solid fa-envelope"></i> Agendar reunión
+        </button>
       </form>
     </div>
   </section>
-
 
   <!-- Pie de página -->
   <footer>
