@@ -18,21 +18,15 @@ function validarTelefono(telefono) {
     
   // Validaciones
   const errores = [];
-
-  // Longitud entre 8 y 15 dígitos (rango típico internacional)
-  if (telefonoLimpio.length < 8 || telefonoLimpio.length > 15) {
-    errores.push('El número debe tener entre 8 y 15 dígitos');
-  }
   
   // Verificar que solo contenga números
   if (!/^\d+$/.test(telefonoLimpio)) {
     errores.push('Solo se permiten números');
   }
-  
-  // Verificar prefijos para Argentina (opcional, puedes ajustar)
-  const prefijoValido = /^(54|0?11|0?15|0?221|0?291|0?341|0?342|0?343|0?351|0?376|0?379|0?380|0?383|0?385|0?387|0?388)/.test(telefonoLimpio);
-  if (!prefijoValido) {
-    errores.push('El prefijo no parece ser válido');
+
+  // Longitud entre 8 y 15 dígitos (rango típico internacional)
+  if (telefonoLimpio.length < 8 || telefonoLimpio.length > 15) {
+    errores.push('El número debe tener entre 8 y 15 dígitos');
   }
 
   return {
@@ -220,7 +214,7 @@ seleccionarTodosLosCubos.addEventListener('change', function() {
 checkboxesCubos.forEach(checkbox => {
   checkbox.addEventListener('change', function() {
     seleccionarTodosLosCubos.checked = 
-      Array.from(checkboxesCubos).every(cb => cb.checked);
+    Array.from(checkboxesCubos).every(cb => cb.checked);
   });
 });
 
